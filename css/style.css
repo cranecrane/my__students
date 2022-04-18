@@ -1,0 +1,9 @@
+.table-title {
+    margin-bottom: 22px;
+}
+
+@media (min-width: 1200px) {
+    .table-title {
+        margin-bottom: 44px;
+    }
+}

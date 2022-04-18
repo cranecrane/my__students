@@ -1,0 +1,102 @@
+<!doctype html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Панель управления студентами</title>
+
+    <link rel="stylesheet" href="css/libs/bootstrap.min.css">
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body class="body bg-light">
+    <main class="container pt-5 pb-6">
+      <h1 class="mb-3 text-primary">Панель управления студентами</h1>
+      <div class="row justify-content-between">
+        <div id="add-form" class="col-xl-3 p-3">
+          <h4 class="mb-3">Добавление студента</h4>
+          <form action="#">
+            <div class="row g-2 mb-3">
+              <div class="col-sm-6 col-md-4 col-xl-12">
+                <label for="surname" class="form-label mb-1">Фамилия</label>
+                <div class="text-danger d-none fw-light">Должна содержать не менее двух букв</div>
+                <input type="text" name="surname" id="surname" class="form-control">
+              </div>
+              <div class="col-sm-6 col-md-4 col-xl-12">
+                <label for="name" class="form-label mb-1">Имя</label>
+                <div class="text-danger d-none fw-light">Должно содержать не менее двух букв</div>
+                <input type="text" name="name" id="name" class="form-control">
+              </div>
+              <div class="col-sm-6 col-md-4 col-xl-12">
+                <label for="middle-name" class="form-label mb-1">Отчество</label>
+                <div class="text-danger d-none fw-light">Должно содержать не менее двух букв</div>
+                <input type="text" name="middle-name" id="middle-name" class="form-control">
+              </div>
+              <div class="col-sm-6 col-md-4 col-xl-12">
+                <label for="birthdate" class="form-label mb-1">Дата рождения</label>
+                <div class="text-danger d-none fw-light">Поле обязательно для заполнения</div>
+                <input type="date" name="birthdate" id="birthdate" min="1900-01-01" class="form-control">
+              </div>
+              <div class="col-sm-6 col-md-4 col-xl-12">
+                <label for="start-year" class="form-label mb-1">Год начала обучения</label>
+                <div class="text-danger d-none fw-light">От 2000 до текущего года</div>
+                <input type="number" name="start-year" id="start-year" min="2000" class="form-control">
+              </div>
+              <div class="col-sm-6 col-md-4 col-xl-12">
+                <label for="faculty" class="form-label mb-1">Факультет</label>
+                <div class="text-danger d-none fw-light">Поле обязательно для заполнения</div>
+                <input type="text" name="faculty" id="faculty" class="form-control">
+              </div>
+            </div>
+            <button class="w-100 btn btn-primary btn-lg" type="submit">Добавить студента</button>
+          </form>
+        </div>
+        <div class="col-xl-9 p-3 pl-5">
+          <h4 class="table-title">Список студентов</h4>
+          <form id="data-filter" class="mb-5 row g-2">
+            <div class="col-sm-6 col-lg-3">
+              <input type="text" id="filterName" name="filter-name" placeholder="ФИО" class="form-control me-2 filter">
+            </div>
+            <div class="col-sm-6 col-lg-3">
+              <input type="text" id="filterFaculty" name="filter-faculty" placeholder="Факультет" class="form-control me-2 filter">
+            </div>
+            <div class="col-sm-6 col-lg-3">
+              <input type="text" id="filterStartyear" name="filter-start-year" placeholder="Год начала обучения" class="form-control me-2 filter">
+            </div>
+            <div class="col-sm-6 col-lg-3">
+              <input type="text" id="filterEndyear" name="filter-end-year" placeholder="Год окончания обучения" class="form-control filter">
+            </div>
+            <button type="button" id="filterReset" class="btn btn-secondary btn-sm col-3 col-xl-6 ms-auto me-auto mt-3">Сбросить</button>
+          </form>
+          <div class="table-responsive-lg fs-6">
+            <table  class="mw-100 table table-striped table-bordered text-nowrap">
+              <thead>
+                <tr>
+                  <th scope="col">
+                    <span class="align-middle">ФИО</span>
+                    <button id="sortNames" class="btn btn-sm btn-outline-secondary ms-2 sort-btn">Abc</button>
+                  </th>
+                  <th scope="col">
+                    <span class="align-middle">Факультет</span>
+                    <button id="sortFaculties" class="btn btn-sm btn-outline-secondary ms-2 sort-btn">Abc</button>
+                  </th>
+                  <th scope="col">
+                    <span class="align-middle">Дата рождения</span>
+                    <button id="sortBirthdays" class="btn btn-sm btn-outline-secondary ms-2 sort-btn">123</button>
+                  </th>
+                  <th scope="col">
+                    <span class="align-middle">Годы обучения</span>
+                    <button id="sortYears" class="btn btn-sm btn-outline-secondary ms-2 sort-btn">123</button>
+                  </th>
+                </tr>
+              </thead>
+              <tbody id="container"></tbody>
+            </table>
+          </div>
+        </div>
+      </div>
+    </main>
+
+    <script defer src="js/main.js"></script>
+</body>
+</html>
